@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190226174729) do
+ActiveRecord::Schema.define(version: 20190226181041) do
 
   create_table "users", force: :cascade do |t|
     t.text "username"
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20190226174729) do
 
   create_table "workouts", force: :cascade do |t|
     t.text    "name"
-    t.integer "sets"
-    t.integer "reps"
     t.integer "start_time"
     t.integer "end_time"
     t.integer "user_id"
