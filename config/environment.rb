@@ -9,4 +9,7 @@ ActiveRecord::Base.establish_connection(
 )
 
 require './app/controllers/application_controller'
+# require './app/controllers/lift_controller.rb'
+# require './app/controllers/user_controllers.rb'
+# require './app/controllers/workout_controller.rb'
 require_all 'app'
