@@ -13,7 +13,7 @@ class UserController < ApplicationController
       user = User.find_by(email: params["email"])
 
       if !params["username"].empty? && !params["password"].empty? && !params["email"].empty? && !user
-        user = User.create(username: params["username"], password: params["password"], email: params["email"])
+        @user = User.create(username: params["username"], password: params["password"], email: params["email"])
         session[:user_id] = user.id
         erb :"/users/show"
       else

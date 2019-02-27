@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190227201028) do
+ActiveRecord::Schema.define(version: 20190227204725) do
 
   create_table "lifts", force: :cascade do |t|
-    t.string  "name"
-    t.integer "reps"
-    t.integer "sets"
-    t.integer "user_id"
+    t.string   "name"
+    t.integer  "reps"
+    t.integer  "sets"
+    t.integer  "user_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "weight"
   end
 
   create_table "users", force: :cascade do |t|
