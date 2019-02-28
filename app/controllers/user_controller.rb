@@ -10,11 +10,12 @@ class UserController < ApplicationController
       end
     end
     post '/signup' do
+
       user = User.find_by(email: params["email"])
 
       if !params["username"].empty? && !params["password"].empty? && !params["email"].empty? && !user
         @user = User.create(username: params["username"], password: params["password"], email: params["email"])
-        session[:user_id] = user.id
+        session[:user_id] = @user.id
         erb :"/users/show"
       else
         redirect to '/signup'
@@ -24,6 +25,7 @@ class UserController < ApplicationController
     get '/login' do
 
     if logged_in?
+      @user = User.find_by(id: session["user_id"])
       erb :'/users/show'
     else
       erb :'/users/login'
