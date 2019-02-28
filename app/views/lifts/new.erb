@@ -1,0 +1,18 @@
+<form method="post" action="/lifts/new">
+<h1> Add your completed lifts for the day </h1>
+
+<label for="lift1">Lift # 1 </label><select id="lift1" name="name">
+                    <option>Deadlift</option>
+                    <option>Squat</option>
+                    <option>Bench</option>
+                    <option> Strict Press</option>
+                    </select>
+  <label for="set1"> Set #1 </label>Weight: <input type="integer" name="weight"></input> Reps: <input type="integer" name="reps"></input>
+  <label for="meeting-time">Chose the start time and date of your lifting session:</label>
+
+  <input type="datetime-local" id="start_time"
+       name="start_time" value="2018-06-12T19:30"
+       min="2018-06-07T00:00" max="2018-06-14T00:00">
+
+  <input type="submit" value ="Submit"> </input>
+</form>

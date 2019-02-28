@@ -8,6 +8,10 @@ class LiftController < ApplicationController
     end
   end
 
+  post '/lifts/new' do
+    binding.pry
+  end
+
   get '/lifts' do
   if !logged_in?
     redirect to '/login'
