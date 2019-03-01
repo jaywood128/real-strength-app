@@ -9,7 +9,11 @@ class LiftController < ApplicationController
   end
 
   post '/lifts/new' do
-    binding.pry
+    lift = Lift.create(params)
+    @user = current_user
+    @user.lifts << lift
+    @user.save
+    erb :'/lifts/lifts'
   end
 
   get '/lifts' do

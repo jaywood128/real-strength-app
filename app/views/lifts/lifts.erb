@@ -1,7 +1,9 @@
-<%Lift.all.each do |lift| %>
-    <%=lift.name %>
-    <%=lift.reps %>
-    <%lift.sets%>
-    <%lift.datetime%>
+
+<% @user.lifts.each do |lift| %>
+  <label for="start_time"> </label>  <%lift.start_time%>
+  <br></br> <%=lift.name %>
+  <label for="set_1_reps"></label>Set 1 Reps <%=lift.set_1_reps %>
+  <label for="set_2_reps"> </label> Set 2 Reps <%lift.set_2_reps%>
+  <label for="set_3_reps"> </label>Set 3 Reps <%lift.set_3_reps%>
+  <label for="set_4_reps"> </label>Set 4 Reps <%lift.set_4_reps%>
     <%end%>
-    
