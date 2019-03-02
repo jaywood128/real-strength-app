@@ -1,1 +1,7 @@
+<h1><%= @lift.name %></h1>
+<%= @lift.set_1_reps %>
 
+<form method="post" action="/lift/<%= @lift.id %>">
+  <input type="hidden" name="_method" value="delete" />
+  <input type="submit" />
+</form>
