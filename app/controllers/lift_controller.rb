@@ -13,6 +13,7 @@ class LiftController < ApplicationController
     @user = current_user
     @user.lifts << lift
     @user.save
+    binding.pry
     erb :'/lifts/lifts'
   end
 
@@ -21,6 +22,7 @@ class LiftController < ApplicationController
     redirect to '/login'
   else
 
+    @user = current_user
     @lifts = Lift.all
 erb :'lifts/lifts'
   end
