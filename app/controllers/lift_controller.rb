@@ -30,8 +30,8 @@ end
 
     get "/lifts/:id" do
       @user = current_user
-   @lift = Lift.find(params[:id])
-   redirect to :'/lifts/show_lift'
+    @lift = Lift.find_by(user_id: @user.id)
+   erb :'/lifts/show_lift'
   end
 
 end
