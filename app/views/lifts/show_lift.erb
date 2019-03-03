@@ -1,5 +1,20 @@
 <h1><%= @lift.name %></h1>
-<%= @lift.set_1_reps %>
+
+<br></br><label for="set_1_weight"> Set #1 </label>Weight: <%= @lift.set_1_weight %>
+
+<h1> Total Reps for Set 1: <%=@lift.set_1_reps%>
+
+<br></br><label for="set_2_weight"> Set #2 </label>Weight:<%= @lift.set_2_weight %>
+
+<label for="set_2_reps"> Total Reps for Set 2: <%= @lift.set_2_reps %>
+
+<br></br><label for="set_3_weight"> Set #3 </label>Weight: <%= @lift.set_3_weight %></label>
+
+<label for="set_3_reps"> Total Reps for Set 3: <%= @lift.set_3_reps %>
+
+<br></br><label for="set_4_weight"> Set #4 </label>Weight: <%= @lift.set_4_weight %>
+
+ <label for="set_4_reps"> Total Reps for Set 4: <%= @lift.set_4_reps %> </label>
 
 <form method="post" action="/lift/<%= @lift.id %>">
   <input type="hidden" name="_method" value="delete" />
