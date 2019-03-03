@@ -1,21 +1,5 @@
 class LiftController < ApplicationController
 
-  get '/lifts/new' do
-    if logged_in?
-      erb :'lifts/new'
-    else
-      redirect to '/login'
-    end
-  end
-
-  post '/lifts/new' do
-    lift = Lift.create(params)
-    @user = current_user
-    @user.lifts << lift
-    @user.save
-     redirect to "/lifts/#{lift.id }"
-  end
-
   get '/lifts' do
   if !logged_in?
     redirect to '/login'
@@ -25,9 +9,29 @@ class LiftController < ApplicationController
 erb :'lifts/lifts'
   end
 end
-    get "/lifts/':id" do
+
+  get '/lifts/new' do
+
+    if logged_in?
+      erb :'lifts/new'
+    else
+      redirect to '/login'
+    end
+  end
+
+  post '/lifts' do
+    lift = Lift.create(params)
+    @user = current_user
+    @user.lifts << lift
+    @user.save
+
+     redirect to "/lifts/#{lift.id}"
+  end
+
+    get "/lifts/:id" do
+      @user = current_user
    @lift = Lift.find(params[:id])
-   erb :show_lift
+   redirect to :'/lifts/show_lift'
   end
 
 end
