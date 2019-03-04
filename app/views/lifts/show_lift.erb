@@ -16,7 +16,7 @@
 
  <label for="set_4_reps"> Total Reps for Set 4: <%= @lift.set_4_reps %> </label>
 
-<form method="post" action="/lift/<%= @lift.id %>">
+<form method="post" action="/lifts/<%= @lift.id %>">
   <input type="hidden" name="_method" value="delete" />
   <input type="submit" />
 </form>

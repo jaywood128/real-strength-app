@@ -49,6 +49,12 @@ end
     @user = current_user
     @lift = Lift.find_by(user_id: @user.id)
     @lift.update(params[:lift])
+    redirect to "/lifts/#{lift.id}"
+  end
+
+  delete "/lifts/:id" do
+    Lift.destroy(params["id"])
+    redirect to '/lifts'
   end
 
 end
