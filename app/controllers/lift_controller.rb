@@ -4,6 +4,7 @@ class LiftController < ApplicationController
   if !logged_in?
     redirect to '/login'
   else
+
     @user = current_user
     @lifts = Lift.all
 erb :'lifts/lifts'
@@ -32,6 +33,22 @@ end
       @user = current_user
     @lift = Lift.find_by(user_id: @user.id)
    erb :'/lifts/show_lift'
+  end
+
+  get "/lifts/:id/edit" do
+    if logged_in?
+      @user = current_user
+      @lift = Lift.find_by(user_id: @user.id)
+    else
+      redirect to "/users/login"
+    end
+    erb :'/lifts/edit_lift'
+  end
+
+  patch "/lifts/:id" do
+    @user = current_user
+    @lift = Lift.find_by(user_id: @user.id)
+    @lift.update(params[:lift])
   end
 
 end

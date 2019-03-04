@@ -1,0 +1,38 @@
+<form action="/lifts/<%= @lift.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <h1> Edit Lift <%=@lift.id%>  </h1>
+
+  <label for="lift1">Lift # 1 </label><select id="lift1" name="lift[name]">
+                      <option>Deadlift</option>
+                      <option>Squat</option>
+                      <option>Bench</option>
+                      <option> Strict Press</option>
+                      </select>
+    <br></br><label for="set_1"> Set #1 </label>Weight: <input type="integer" name="lift[set_1_weight]">
+
+  </input> Total Reps for Set 1: <input type="integer" name="lift[set_1_reps]"></input>
+
+    <br></br><label for="set_2"> Set #2 </label>Weight: <input type="integer" name="lift[set_2_weight]">
+
+  </input> Total Reps for Set 2: <input type="integer" name="lift[set_2_reps]"></input>
+
+    <br></br><label for="set_3"> Set #3 </label>Weight: <input type="integer" name="lift[set_3_weight]">
+
+  </input> Total Reps for Set 3: <input type="integer" name="lift[set_3_reps]"></input>
+
+    <br></br><label for="set_4"> Set #4 </label>Weight: <input type="integer" name="lift[set_4_weight]">
+
+  </input> Total Reps for Set 4: <input type="integer" name="lift[set_4_reps]"></input>
+
+  <br></br><label for="lifting-time">Date and start time of lifting session:</label>
+
+    <input type="datetime-local" id="start_time"
+         name="lift[start_time]">
+  <br></br> <br></br><label for="lifting-time">End time of your lifting session:</label>
+
+    <input type="datetime-local" id="lift[end_time]"
+         name="lift[end_time]">
+
+    <input type="submit" value ="Submit"> </input>
+  </form>
