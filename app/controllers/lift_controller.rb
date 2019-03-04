@@ -1,13 +1,12 @@
 class LiftController < ApplicationController
 
   get '/lifts' do
-  if !logged_in?
-    redirect to '/login'
-  else
-
-    @user = current_user
-    @lifts = Lift.all
-erb :'lifts/lifts'
+    if !logged_in?
+      redirect to '/login'
+    else
+      @user = current_user
+      @lifts = Lift.all
+    erb :'lifts/lifts'
   end
 end
 
@@ -21,19 +20,18 @@ end
   end
 
   post '/lifts' do
-    lift = Lift.create(params)
+   lift = Lift.create(params)
     @user = current_user
     @user.lifts << lift
     @user.save
-
      redirect to "/lifts/#{lift.id}"
   end
 
-    get "/lifts/:id" do
+  get "/lifts/:id" do
       @user = current_user
-    @lift = Lift.find_by(user_id: @user.id)
-   erb :'/lifts/show_lift'
-  end
+      @lift = Lift.find_by(user_id: @user.id)
+  erb :'/lifts/show_lift'
+end
 
   get "/lifts/:id/edit" do
     if logged_in?
@@ -49,12 +47,12 @@ end
     @user = current_user
     @lift = Lift.find_by(user_id: @user.id)
     @lift.update(params[:lift])
-    redirect to "/lifts/#{lift.id}"
+   redirect to "/lifts/#{@lift.id}"
   end
 
   delete "/lifts/:id" do
     Lift.destroy(params["id"])
-    redirect to '/lifts'
+   redirect to '/lifts'
   end
 
 end
