@@ -20,11 +20,16 @@ end
   end
 
   post '/lifts' do
-   lift = Lift.create(params)
-    @user = current_user
-    @user.lifts << lift
-    @user.save
+    if logged_in?
+      lift = Lift.create(params)
+      @user = current_user
+      @user.lifts << lift
+      @user.save
      redirect to "/lifts/#{lift.id}"
+   else
+     redirect to '/users/login'
+   end
+
   end
 
   get "/lifts/:id" do
@@ -51,8 +56,14 @@ end
   end
 
   delete "/lifts/:id" do
-    Lift.destroy(params["id"])
-   redirect to '/lifts'
+
+    @lift = Lift.find(params["id"])
+    if logged_in? && @lift.user_id == current_user.id
+      @lift.destroy
+    else
+      redirect to '/login'
+    end
+    redirect to '/lifts'
   end
 
 end
