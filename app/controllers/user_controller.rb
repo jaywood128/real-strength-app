@@ -11,12 +11,11 @@ class UserController < ApplicationController
     end
     post '/signup' do
 
-      user = User.find_by(username: params["username"], email: params["email"])
+      @user = User.create(username: params["username"], password: params["password"], email: params["email"])
 
-      if !params["username"].empty? && !params["password"].empty? && !params["email"].empty? && !user
-        @user = User.create(username: params["username"], password: params["password"], email: params["email"])
+      if @user.save
         session[:user_id] = @user.id
-        erb :"/users/show"
+        redirect to  :"/users/{@user.id}"
       else
         redirect to '/signup'
       end
