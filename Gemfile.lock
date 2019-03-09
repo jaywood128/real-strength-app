@@ -113,6 +113,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.2, >= 4.2.6)
   bcrypt
+  bundler (~> 2.0, >= 2.0.1)
   capybara
   database_cleaner!
   pry
