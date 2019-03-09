@@ -6,9 +6,9 @@ class LiftController < ApplicationController
     else
       @user = current_user
       @lifts = Lift.all
-    erb :'lifts/lifts'
+      erb :'lifts/lifts'
+    end
   end
-end
 
   get '/lifts/new' do
 
@@ -49,15 +49,18 @@ end
   end
 
   patch "/lifts/:id" do
-    @user = current_user
-    @lift = Lift.find_by(user_id: @user.id)
-    @lift.update(params[:lift])
-   redirect to "/lifts/#{@lift.id}"
+    if logged_in?
+      @user = current_user
+      @lift = Lift.find_by(user_id: @user.id)
+      @lift.update(params[:lift])
+      redirect to "/lifts/#{@lift.id}"
+     end
   end
 
   delete "/lifts/:id" do
 
     @lift = Lift.find(params["id"])
+
     if logged_in? && @lift.user_id == current_user.id
       @lift.destroy
     else
