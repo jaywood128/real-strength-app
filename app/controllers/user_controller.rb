@@ -9,13 +9,17 @@ class UserController < ApplicationController
         erb  :'/users/show'
       end
     end
+  get '/users/:id' do 
+    @user = User.find(params["id"])
+  end
     post '/signup' do
-
+    
       @user = User.create(username: params["username"], password: params["password"], email: params["email"])
-
+      
       if @user.save
         session[:user_id] = @user.id
-        redirect to  :"/users/{@user.id}"
+  
+        redirect to  :"/users/#{@user.id}"
       else
         redirect to '/signup'
       end

@@ -1,9 +1,16 @@
+<%require 'pry' %> 
 <% @user.lifts.each do |lift| %>
 
   <b><label for="start_time"> </label>  <%=lift.start_time%></b>
   <br></br> <%=lift.name %>
-  <label for="set_1_reps"></label>Set 1 Reps <%=lift.set_1_reps %>
-  <label for="set_2_reps"> </label> Set 2 Reps <%lift.set_2_reps%>
-  <label for="set_3_reps"> </label>Set 3 Reps <%lift.set_3_reps%>
-  <label for="set_4_reps"> </label>Set 4 Reps <%lift.set_4_reps%>
+  <br></br><label for="start_time"></label>Start time: <%=lift.start_time %>
+  <br></br><label for="end_time"></label>End time: <%=lift.end_time %>
+  <br></br><label for="set_1_reps"></label>Set 1 Reps: <%=lift.set_1_reps %>
+  <br></br><label for="set_1_weight"></label>Set 1 Weight: <%=lift.set_1_weight %>
+
+  <br></br><label for="start_time"></label>Start time: <%=lift.start_time %>
+  <br></br><label for="end_time"></label>End time: <%=lift.end_time %>
+  <br></br><label for="set_1_reps"></label>Set 1 Reps: <%=lift.set_1_reps %>
+  <br></br><label for="set_1_weight"></label>Set 1 Weight: <%=lift.set_1_weight %>
+  
     <%end%>
