@@ -8,11 +8,19 @@ class UserController < ApplicationController
       else
         erb  :'/users/show'
       end
-    end
-  get '/users/:id' do 
-    @user = User.find(params["id"])
   end
-    post '/signup' do
+
+  get '/users/:id' do 
+  
+    if logged_in? && params["id"] == current_user.id
+      @user = User.find_by(:id => params["id"])
+      erb :'/users/show'
+    else 
+      redirect to request.referrer
+    end
+  end
+    
+  post '/signup' do
     
       @user = User.create(username: params["username"], password: params["password"], email: params["email"])
       
@@ -21,7 +29,7 @@ class UserController < ApplicationController
   
         redirect to  :"/users/#{@user.id}"
       else
-        redirect to '/signup'
+        redirect to :'/signup'
       end
   end
 

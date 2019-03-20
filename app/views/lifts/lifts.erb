@@ -2,15 +2,20 @@
 <% @user.lifts.each do |lift| %>
 
   <b><label for="start_time"> </label>  <%=lift.start_time%></b>
-  <br></br> <%=lift.name %>
-  <br></br><label for="start_time"></label>Start time: <%=lift.start_time %>
-  <br></br><label for="end_time"></label>End time: <%=lift.end_time %>
-  <br></br><label for="set_1_reps"></label>Set 1 Reps: <%=lift.set_1_reps %>
-  <br></br><label for="set_1_weight"></label>Set 1 Weight: <%=lift.set_1_weight %>
+  <span> <%=lift.name %> </span> 
+  <br></br><label for="start_time"></label>Start Time: <%=lift.start_time %>
+  <br></br><label for="end_time"></label>End Time: <%=lift.end_time %>
+  <br></br><label for="set_1_reps"></label>Reps for Set #1: <%=lift.set_1_reps %>
+  <br></br><label for="set_1_weight"></label>Weight for Set #1: <%=lift.set_1_weight %>
 
-  <br></br><label for="start_time"></label>Start time: <%=lift.start_time %>
-  <br></br><label for="end_time"></label>End time: <%=lift.end_time %>
-  <br></br><label for="set_1_reps"></label>Set 1 Reps: <%=lift.set_1_reps %>
-  <br></br><label for="set_1_weight"></label>Set 1 Weight: <%=lift.set_1_weight %>
+  
+  <br></br><label for="set_2_reps"></label>Reps for Set #2: <%=lift.set_2_reps %> </label>
+  <br></br><label for="set_2_weight"></label>Weight for Set #2: <%=lift.set_2_weight %>
+
+  <br></br><label for="set_3_reps"></label>Reps for Set #3: <%=lift.set_3_reps %> </label>
+  <br></br><label for="set_3_weight"></label>Weight for Set #3: <%=lift.set_3_weight %>
+
+  <br></br><label for="set_4_reps"></label>Reps for Set #4: <%=lift.set_4_reps %> </label>
+  <br></br><label for="set_4_weight"></label>Weight for Set #4: <%=lift.set_4_weight %>
   
     <%end%>
