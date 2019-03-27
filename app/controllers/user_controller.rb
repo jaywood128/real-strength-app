@@ -23,11 +23,12 @@ class UserController < ApplicationController
   post '/signup' do
     
       @user = User.create(username: params["username"], password: params["password"], email: params["email"])
-      
+     
       if @user.save
         session[:user_id] = @user.id
-  
-        redirect to  :"/users/#{@user.id}"
+        binding.pry
+        # redirect to  :"/users/#{@user.id}"
+        erb :'/users/show'
       else
         redirect to :'/signup'
       end
