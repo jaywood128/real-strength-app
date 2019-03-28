@@ -26,7 +26,7 @@ class UserController < ApplicationController
      
       if @user.save
         session[:user_id] = @user.id
-        binding.pry
+    
         # redirect to  :"/users/#{@user.id}"
         erb :'/users/show'
       else
