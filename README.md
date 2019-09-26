@@ -5,7 +5,7 @@ RealStrength is a Sinatra based app for recording weightlifting progress.
 ## Description
 
 
-![RealStrength preview](https://i.imgur.com/sM6NkHC.png"Optional title")
+![RealStrength preview](https://i.imgur.com/sM6NkHC.png)
 https://i.imgur.com/sM6NkHC.png
 
 
